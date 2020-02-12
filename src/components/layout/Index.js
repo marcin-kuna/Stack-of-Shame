@@ -1,10 +1,12 @@
 import React from 'react';
 import Movies from '../movies/Movies';
+import Search from '../movies/Search';
 
 const Index = () => {
     return (
         <React.Fragment>
-            <Movies/>
+            <Search />
+            <Movies />
         </React.Fragment>
     )
 }

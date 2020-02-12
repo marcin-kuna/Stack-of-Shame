@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const Context = React.createContext();
-// const API_KEY = process.env.REACT_APP_IGDB_KEY
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'SEARCH_MOVIES':
+            return {
+                ...state,
+                movies_list: action.payload,
+                heading: 'Search Results'
+            };
+        default: 
+            return state;
+    }
+}
 
 export class Provider extends Component {
     state = {
         movies_list: [],
-        heading: 'Search for your movies'
+        heading: 'Trending Movies',
+        dispatch: action => this.setState(state => reducer(state, action))
     }
 
     componentDidMount() {
