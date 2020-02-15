@@ -10,23 +10,10 @@ class Details extends Component {
     }
 
     componentDidMount() {
-        // axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}`)
-        // .then(res => {
-        //     console.log(res.data)
-        //     this.setState({details: res.data});
-
-        //     return axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`)
-        // })
-        // .then(res => {
-        //     console.log(res.data)
-        //     this.setState({credits: res.data});
-        // })
         axios.all([
             axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}`),
             axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`)
         ]).then(axios.spread((detailsRes, creditsRes) => {
-            // console.log(detailsRes.data)
-            // console.log(creditsRes.data)
             this.setState({details: detailsRes.data});
             this.setState({credits: creditsRes.data});
         }))
@@ -35,8 +22,6 @@ class Details extends Component {
 
     render() {
         const { details, credits } = this.state;
-
-        console.log(credits.crew)
 
         if (details === undefined || credits === undefined || Object.keys(details).length === 0 || Object.keys(details).length === 0) {
             return <Spinner />

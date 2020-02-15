@@ -16,7 +16,7 @@ class Search extends Component {
 
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${this.state.movieTitle}&page=1&include_adult=false`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 dispatch({
                     type: 'SEARCH_MOVIES',
                     payload: res.data.results

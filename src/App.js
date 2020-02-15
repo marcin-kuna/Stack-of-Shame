@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
 import Details from './components/movies/Details';
+import Stack from './components/layout/Stack';
 import { Provider } from './context'
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Index}/>
               <Route exact path="/details/movie/:id" component={Details}/>
+              <Route exact path="/stack" component={Stack}/>
             </Switch>
           </div>
         </React.Fragment>

@@ -10,6 +10,11 @@ const reducer = (state, action) => {
                 movies_list: action.payload,
                 heading: 'Search Results'
             };
+        case 'ADD_MOVIE' :
+            return {
+                ...state,
+                movies_list_sos: [...state.movies_list_sos, action.payload]
+            };
         default: 
             return state;
     }
@@ -19,7 +24,34 @@ export class Provider extends Component {
     state = {
         movies_list: [],
         heading: 'Trending Movies',
+        movies_list_sos: [],
+        movies_watched: [],
         dispatch: action => this.setState(state => reducer(state, action))
+    }
+
+    addMovie = (title, id, poster_path, date) => {
+        const checkList = this.state.movies_list_sos.map((item) => {return item.id}).find(movieid => {
+            return movieid === id
+        })
+        if(checkList === undefined){
+            this.setState({movies_list_sos: [...this.state.movies_list_sos, {title, id, poster_path, date}]})
+        }
+    }
+
+    deleteMovie = (id) => {
+        this.setState({movies_list_sos: this.state.movies_list_sos.filter(movie => {
+            return movie.id !== id
+        })})
+    }
+
+    addToWatched = (title, id) => {
+        const checkList = this.state.movies_watched.map((item) => {return item.id}).find(movieid => {
+            return movieid === id
+        })
+        if(checkList === undefined){
+            this.setState({movies_watched: [...this.state.movies_watched, {title, id}]});
+        }
+        this.deleteMovie(id)
     }
 
     componentDidMount() {
@@ -59,7 +91,7 @@ export class Provider extends Component {
 
     render() {
         return (
-            <Context.Provider value={this.state}>
+            <Context.Provider value={{...this.state, addMovie: this.addMovie, deleteMovie: this.deleteMovie, addToWatched: this.addToWatched}}>
                 {this.props.children}
             </Context.Provider>
         )
