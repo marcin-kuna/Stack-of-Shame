@@ -15,6 +15,17 @@ const reducer = (state, action) => {
                 ...state,
                 movies_list_sos: [...state.movies_list_sos, action.payload]
             };
+        case 'SEARCH_GAMES':
+            return {
+                ...state,
+                games_list: action.payload,
+                heading: 'Search Results'
+            };
+        case 'ADD_GAME' :
+            return {
+                ...state,
+                games_list_sos: [...state.games_list_sos, action.payload]
+            };
         default: 
             return state;
     }
@@ -23,8 +34,10 @@ const reducer = (state, action) => {
 export class Provider extends Component {
     state = {
         movies_list: [],
+        games_list: [],
         heading: 'Trending Movies',
         movies_list_sos: [],
+        games_list_sos: [],
         movies_watched: [],
         dispatch: action => this.setState(state => reducer(state, action))
     }
@@ -35,6 +48,15 @@ export class Provider extends Component {
         })
         if(checkList === undefined){
             this.setState({movies_list_sos: [...this.state.movies_list_sos, {title, id, poster_path, date}]})
+        }
+    }
+
+    addGame = (title, id, image, date) => {
+        const checkList = this.state.games_list_sos.map((item) => {return item.id}).find(gameid => {
+            return gameid === id
+        })
+        if(checkList === undefined){
+            this.setState({games_list_sos: [...this.state.games_list_sos, {title, id, image, date}]})
         }
     }
 
@@ -91,7 +113,7 @@ export class Provider extends Component {
 
     render() {
         return (
-            <Context.Provider value={{...this.state, addMovie: this.addMovie, deleteMovie: this.deleteMovie, addToWatched: this.addToWatched}}>
+            <Context.Provider value={{...this.state, addMovie: this.addMovie, deleteMovie: this.deleteMovie, addToWatched: this.addToWatched, addGame: this.addGame}}>
                 {this.props.children}
             </Context.Provider>
         )

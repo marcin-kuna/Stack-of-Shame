@@ -4,8 +4,10 @@ import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
 import Details from './components/movies/Details';
 import Stack from './components/layout/Stack';
+import GameDetails from './components/games/GameDetails';
 import { Provider } from './context'
 import './App.css';
+import './Badges.scss';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
               <Route exact path="/" component={Index}/>
               <Route exact path="/details/movie/:id" component={Details}/>
               <Route exact path="/stack" component={Stack}/>
+              <Route exact path="/details/game/:id" component={GameDetails}/>
             </Switch>
           </div>
         </React.Fragment>

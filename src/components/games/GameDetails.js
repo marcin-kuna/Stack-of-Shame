@@ -3,68 +3,80 @@ import axios from 'axios';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 
-class Details extends Component {
+class GameDetails extends Component {
     state = {
         details: {},
-        credits: {}
     }
 
     componentDidMount() {
-        axios.all([
-            axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}`),
-            axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`)
-        ]).then(axios.spread((detailsRes, creditsRes) => {
-            this.setState({details: detailsRes.data});
-            this.setState({credits: creditsRes.data});
-        }))
+        axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/game/${this.props.match.params.id}/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json`)
+        .then(res => {
+            console.log(res.data.results)
+            this.setState({details: res.data.results})
+        })
         .catch(err => console.log(err))
     }
 
     render() {
-        const { details, credits } = this.state;
+        const { details } = this.state;
+        // return(
+        //     <h1>Game details</h1>
+        // )
 
-        if (details === undefined || credits === undefined || Object.keys(details).length === 0 || Object.keys(credits).length === 0) {
+        if (details === undefined || Object.keys(details).length === 0 || Object.keys(details).length === 0) {
             return <Spinner />
         } else {
             return (
                 <div className="col-md-6 mx-auto">
                     <Link to="/" className="btn btn-dark btn-sm mb-4">Go back</Link>
                     <div className="card">
-                        <h5 className="card-header">{details.title}</h5>
-                        <img src={`http://image.tmdb.org/t/p/original${details.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light"/>
+                        <h5 className="card-header">{details.name}</h5>
+                        <img src={details.image.original_url} alt="" className="card-img waves-effect waves-block waves-light"/>
                         <div className="card-body">
-                            <p className="card-text">{details.overview}</p>
+                            <p className="card-text">{details.deck}</p>
                         </div>
                     </div>
                     <ul className="list-group my-3">
                         <li className="list-group-item list-group-item-dark text-center">
-                            <strong>Movie details</strong>
+                            <strong>Game details</strong>
                         </li>
-                        <li className="list-group-item">
+                        {/* <li className="list-group-item">
                             <strong>Score</strong>: {details.vote_average}
-                        </li>
+                        </li> */}
                         <li className="list-group-item">
                             <strong>Genre</strong>: {details.genres.map((item, index) => (
                                 <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
                             ))}
                         </li>
                         <li className="list-group-item">
-                            <strong>Release date</strong>: {details.release_date}
+                            <strong>Release date</strong>: {details.original_release_date}
                         </li>
                         <li className="list-group-item">
-                            <strong>Runtime</strong>: {details.runtime} minutes
+                            <strong>Platforms</strong>: {details.platforms.map((item, index) => (
+                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
+                            ))}
                         </li>
                         <li className="list-group-item">
+                            <strong>Developers</strong>: {details.developers.map((item, index) => (
+                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
+                            ))}
+                        </li>
+                        <li className="list-group-item">
+                            <strong>Publishers</strong>: {details.publishers.map((item, index) => (
+                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
+                            ))}
+                        </li>
+                        {/* <li className="list-group-item">
                             <strong>Tagline</strong>: {details.tagline}
-                        </li>
-                        <li className="list-group-item">
+                        </li> */}
+                        {/* <li className="list-group-item">
                             <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank">{details.homepage}</a>) : (<span>none</span>)}
-                        </li>
+                        </li> */}
                         <li className="list-group-item">
-                            <strong>IMDb</strong>: <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank">{details.title}</a>
+                            <strong>GiantBomb</strong>: <a href={details.site_detail_url} target="_blank">{details.name}</a>
                         </li>
                     </ul>
-                    <ul className="list-group my-3">
+                    {/* <ul className="list-group my-3">
                         <li className="list-group-item list-group-item-dark text-center">
                             <strong>Credits</strong>
                         </li>
@@ -90,11 +102,11 @@ class Details extends Component {
                             }).map((item, index) => (<span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
                             )) : (<div>Loading...</div>)}
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
             )
         }
     }
 }
 
-export default Details;
+export default GameDetails;

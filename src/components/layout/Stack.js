@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
 import Moment from 'react-moment';
+import Badges from './Badges';
 
 
 class Stack extends Component {
@@ -37,7 +38,8 @@ class Stack extends Component {
                                 </div>
                                 ))}
                             </div>
-                                <p>{movies_watched.length}</p>
+                                
+                            <Badges />
                         </React.Fragment>
                     )
                 }
