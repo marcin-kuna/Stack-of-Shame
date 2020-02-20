@@ -42,12 +42,30 @@ export class Provider extends Component {
         dispatch: action => this.setState(state => reducer(state, action))
     }
 
-    addMovie = (title, id, poster_path, date) => {
+    addMultimedia = (mediaList, type, media) => {
+        const checkList = mediaList.find(item => item.id === media.id);
+    
+        if (checkList === undefined) {
+          let newState = {};
+          newState[type] = [...mediaList, media];
+          this.setState(prevState => ({ ...prevState, ...newState }));
+        }
+      };
+
+    removeMultimedia = (mediaList, type, id) => {
+
+          let newState = {};
+          newState[type] = mediaList.filter(media => {return media.id !== id})
+          this.setState(prevState => ({ ...prevState, ...newState }));
+        
+      };
+
+    addMovie = (title, id, image, date) => {
         const checkList = this.state.movies_list_sos.map((item) => {return item.id}).find(movieid => {
             return movieid === id
         })
         if(checkList === undefined){
-            this.setState({movies_list_sos: [...this.state.movies_list_sos, {title, id, poster_path, date}]})
+            this.setState({movies_list_sos: [...this.state.movies_list_sos, {title, id, image, date}]})
         }
     }
 
@@ -113,7 +131,7 @@ export class Provider extends Component {
 
     render() {
         return (
-            <Context.Provider value={{...this.state, addMovie: this.addMovie, deleteMovie: this.deleteMovie, addToWatched: this.addToWatched, addGame: this.addGame}}>
+            <Context.Provider value={{...this.state, addMovie: this.addMovie, deleteMovie: this.deleteMovie, addToWatched: this.addToWatched, addGame: this.addGame, addMultimedia: this.addMultimedia, removeMultimedia: this.removeMultimedia}}>
                 {this.props.children}
             </Context.Provider>
         )

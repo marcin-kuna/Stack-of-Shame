@@ -14,9 +14,34 @@ class GameSearch extends Component {
     findGame = (dispatch, e) => {
         e.preventDefault();
 
+        // axios({
+        //     url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'user-key': process.env.REACT_APP_IGDB_KEY
+        //     },
+        //     // data: `search "${this.state.gameTitle}"; fields *; limit 10;`
+        //         // data: `fields name, cover.url; sort popularity desc;`
+        //         // data: `fields name, genres.name, cover.url, release_date.human; where id = 1942;`
+        //         // data: `fields *; where id = 1942;`
+
+        //   })
+        //     .then(response => {
+        //         console.log(response.data);
+
+        //         dispatch({
+        //             type: 'SEARCH_GAMES',
+        //             payload: response.data.results
+        //         })
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     });
+
         axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.gameTitle}&resources=game`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
 
                 dispatch({
                     type: 'SEARCH_GAMES',

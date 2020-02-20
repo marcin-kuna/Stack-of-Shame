@@ -7,7 +7,7 @@ class Jumbotrons extends Component {
         return (
             <Consumer>
                 {value => {
-                    const { movies_list_sos } = value;
+                    const { movies_list_sos, games_list_sos } = value;
 
                     return(
                         <div className="container row">
@@ -19,7 +19,7 @@ class Jumbotrons extends Component {
                             <div className="jumbotron col-md-4 text-center">
                                 <i className="fas fa-gamepad display-3"></i>
                                 <h1 className="display-3">Games</h1>
-                                <p className="lead">{movies_list_sos.length} to play</p>
+                                <p className="lead">{games_list_sos.length} to play</p>
                             </div>
                             <div className="jumbotron col-md-4 text-center">
                                 <i className="fas fa-book display-3"></i>

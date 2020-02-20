@@ -8,6 +8,10 @@ class GameDetails extends Component {
         details: {},
     }
 
+    parseOverview = () => {
+        return {__html: this.state.details.description}
+    }
+
     componentDidMount() {
         axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/game/${this.props.match.params.id}/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json`)
         .then(res => {
@@ -19,91 +23,68 @@ class GameDetails extends Component {
 
     render() {
         const { details } = this.state;
-        // return(
-        //     <h1>Game details</h1>
-        // )
 
-        if (details === undefined || Object.keys(details).length === 0 || Object.keys(details).length === 0) {
+        if (details === undefined || Object.keys(details).length === 0) {
             return <Spinner />
         } else {
             return (
-                <div className="col-md-6 mx-auto">
-                    <Link to="/" className="btn btn-dark btn-sm mb-4">Go back</Link>
-                    <div className="card">
-                        <h5 className="card-header">{details.name}</h5>
-                        <img src={details.image.original_url} alt="" className="card-img waves-effect waves-block waves-light"/>
-                        <div className="card-body">
-                            <p className="card-text">{details.deck}</p>
+                    <div className="col-md-6 mx-auto">
+                        <Link to="/" className="btn btn-dark btn-sm mb-4">Go back</Link>
+                        <div className="card">
+                            <h5 className="card-header">{details.name}</h5>
+                            <img src={details.image.original_url} alt="" className="card-img waves-effect waves-block waves-light"/>
+                            <div className="card-body">
+                                <p className="card-text">{details.deck}</p>
+                            </div>
+                            {/* <div className="card-body">
+                                <p className="card-text" dangerouslySetInnerHTML={this.parseOverview()}></p>
+                            </div> */}
                         </div>
+                        <ul className="list-group my-3">
+                            <li className="list-group-item list-group-item-dark text-center">
+                                <strong>Game details</strong>
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Genre</strong>: {details.genres.map((item, index) => (
+                                    <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
+                                ))}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Release date</strong>: {details.original_release_date}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Platforms</strong>: {details.platforms.map((item, index) => (
+                                    <span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
+                                ))}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Developers</strong>: {details.developers.map((item, index) => (
+                                    <span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
+                                ))}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Publishers</strong>: {details.publishers.map((item, index) => (
+                                    <span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
+                                ))}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Rating</strong>: {details.original_game_rating ? details.original_game_rating.map((item, index) => (
+                                    <span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
+                                )) : <span>No data</span>}
+                            </li>
+                            <li className="list-group-item">
+                                <strong>Similar Games</strong>: {details.similar_games ? details.similar_games.map((item, index) => (
+                                    <span key={item.id}>{(index ? ', ' : '')}<a href={item.site_detail_url} target="_blank">{item.name}</a></span>
+                                )) : <span>No data</span>}
+                            </li>
+                            {/* <li className="list-group-item">
+                                <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank">{details.homepage}</a>) : (<span>none</span>)}
+                            </li> */}
+                            <li className="list-group-item">
+                                <strong>Overview</strong>: <a href={details.site_detail_url} target="_blank">{details.name}</a>
+                            </li>
+                        </ul>
                     </div>
-                    <ul className="list-group my-3">
-                        <li className="list-group-item list-group-item-dark text-center">
-                            <strong>Game details</strong>
-                        </li>
-                        {/* <li className="list-group-item">
-                            <strong>Score</strong>: {details.vote_average}
-                        </li> */}
-                        <li className="list-group-item">
-                            <strong>Genre</strong>: {details.genres.map((item, index) => (
-                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
-                            ))}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Release date</strong>: {details.original_release_date}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Platforms</strong>: {details.platforms.map((item, index) => (
-                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
-                            ))}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Developers</strong>: {details.developers.map((item, index) => (
-                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
-                            ))}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Publishers</strong>: {details.publishers.map((item, index) => (
-                                <span key={item.id} className="text-lowercase">{(index ? ', ' : '')}{item.name}</span>
-                            ))}
-                        </li>
-                        {/* <li className="list-group-item">
-                            <strong>Tagline</strong>: {details.tagline}
-                        </li> */}
-                        {/* <li className="list-group-item">
-                            <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank">{details.homepage}</a>) : (<span>none</span>)}
-                        </li> */}
-                        <li className="list-group-item">
-                            <strong>GiantBomb</strong>: <a href={details.site_detail_url} target="_blank">{details.name}</a>
-                        </li>
-                    </ul>
-                    {/* <ul className="list-group my-3">
-                        <li className="list-group-item list-group-item-dark text-center">
-                            <strong>Credits</strong>
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Cast</strong>: {credits.cast !== undefined ? credits.cast.slice(0,5).map((item, index) => (<span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
-                            )) : (<div>Loading...</div>)}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Director</strong>: {credits.crew !== undefined ? credits.crew.filter((person) => {
-                            return person.job === 'Director'
-                            }).map((item, index) => (<span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
-                            )) : (<div>Loading...</div>)}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Screenplay</strong>: {credits.crew !== undefined ? credits.crew.filter((person) => {
-                            return person.job === 'Screenplay' || person.job === 'Writer'
-                            }).map((item, index) => (<span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
-                            )) : (<div>Loading...</div>)}
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Music</strong>: {credits.crew !== undefined ? credits.crew.filter((person) => {
-                            return person.job === 'Original Music Composer' || person.job === 'Music'
-                            }).map((item, index) => (<span key={item.id}>{(index ? ', ' : '')}{item.name}</span>
-                            )) : (<div>Loading...</div>)}
-                        </li>
-                    </ul> */}
-                </div>
             )
         }
     }
