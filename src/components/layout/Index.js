@@ -9,10 +9,10 @@ const Index = () => {
     return (
         <React.Fragment>
             <Search />
-            <GameSearch />
-            <Jumbotrons />
+            {/* <GameSearch /> */}
             <Movies />
             <Games />
+            <Jumbotrons />
         </React.Fragment>
     )
 }

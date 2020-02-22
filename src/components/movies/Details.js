@@ -41,7 +41,7 @@ class Details extends Component {
                             <strong>Movie details</strong>
                         </li>
                         <li className="list-group-item">
-                            <strong>Score</strong>: {details.vote_average}
+                            <strong>Score</strong>: {details.vote_average}/10
                         </li>
                         <li className="list-group-item">
                             <strong>Genre</strong>: {details.genres.map((item, index) => (

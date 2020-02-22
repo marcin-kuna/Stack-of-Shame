@@ -8,21 +8,26 @@ class Games extends Component {
         return (
             <Consumer>
                 {value => {
-                    const { games_list, heading } = value;
-                    if (games_list === undefined || games_list.length === 0) {
-                        return <Spinner/>
+                    const { heading, media_list, search_code } = value;
+                    
+                    if (search_code !== 'G') {
+                        return <span></span>
                     } else {
-                        // console.log(games_list)
-                        return (
-                            <React.Fragment>
-                                <h3 className="text-center mb-4">{heading}</h3>
-                                <div className="row">
-                                    {games_list.slice(0,9).map(item => (
-                                        <Game key={item.id} game = {item}/>
-                                    ))}
-                                </div>
-                            </React.Fragment>
-                        )
+                        if (media_list === undefined || media_list.length === 0) {
+                        return <Spinner/>}
+                        else{
+                            return (
+                                <React.Fragment>
+                                    <h3 className="text-center mb-4">{heading}</h3>
+                                    <div className="row">
+                                        {media_list.slice(0,8).map(item => (
+                                            <Game key={item.id} game = {item}/>
+                                        ))}
+                                    </div>
+                                </React.Fragment>
+                            )
+                        }
+                        
                     }
                 }}
             </Consumer>

@@ -50,7 +50,7 @@ class GameDetails extends Component {
                                 ))}
                             </li>
                             <li className="list-group-item">
-                                <strong>Release date</strong>: {details.original_release_date}
+                                <strong>Release date</strong>: {details.original_release_date ? details.original_release_date : <span>No data</span>}
                             </li>
                             <li className="list-group-item">
                                 <strong>Platforms</strong>: {details.platforms.map((item, index) => (
