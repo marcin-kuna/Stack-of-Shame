@@ -11,7 +11,7 @@ class Stack extends Component {
             
             <Consumer>
             {value => {
-                const { movies_list_sos, movies_watched, deleteMovie, addToWatched, games_list_sos, deleteGame, addToPlayed, removeMultimedia } = value;
+                const { movies_list_sos, games_list_sos, books_list_sos, removeMultimedia, addToWatched, addToPlayed, addToRead} = value;
                 // if (movies_list_sos === undefined || movies_list_sos.length === 0) {
                 //     return (
                 //         <h1>No movies to watch</h1>
@@ -33,7 +33,7 @@ class Stack extends Component {
                                             <Link to={`details/movie/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
                                             <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(movies_list_sos, 'movies_list_sos', item.id)}><i className="fas fa-trash"></i></button>
                                             {/* <button className="btn btn-danger col-md-4" onClick={() => deleteMovie(item.id)}><i className="fas fa-trash"></i></button> */}
-                                            <button className="btn btn-success col-md-4" onClick={() => addToWatched(item.title, item.id)}><i className="fas fa-check-circle"></i></button>
+                                            <button className="btn btn-success col-md-4" onClick={() => addToWatched(movies_list_sos, 'movies_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +49,26 @@ class Stack extends Component {
                                             <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light img-block"/>
                                             <p>Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
                                             <Link to={`details/game/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
-                                            <button className="btn btn-danger col-md-4" onClick={() => deleteGame(item.id)}><i className="fas fa-trash"></i></button>
-                                            <button className="btn btn-success col-md-4" onClick={() => addToPlayed(item.title, item.id)}><i className="fas fa-check-circle"></i></button>
+                                            <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(games_list_sos, 'games_list_sos', item.id)}><i className="fas fa-trash"></i></button>
+                                            <button className="btn btn-success col-md-4" onClick={() => addToPlayed(games_list_sos, 'games_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                ))}
+                            </div>
+                            <h3 className="text-center mb-4">Books to read</h3>
+                            <div className="container row">
+                                {books_list_sos.map(item => (
+                                <div className="col-md-4">
+                                    {console.log(item)}
+                                    <div className="card mb-4 shadow-sm">
+                                        <div className="card-body" key={item.id}>
+                                            <h5 className="card-title">{item.title}</h5>
+                                            <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light img-block"/>
+                                            <p>Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
+                                            <Link to={`details/book/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
+                                            <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(books_list_sos, 'books_list_sos', item.id)}><i className="fas fa-trash"></i></button>
+                                            <button className="btn btn-success col-md-4" onClick={() => addToRead(books_list_sos, 'books_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
                                         </div>
                                     </div>
                                 </div>

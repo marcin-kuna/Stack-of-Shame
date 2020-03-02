@@ -26,6 +26,7 @@ class Search extends Component {
         if(this.state.media === 'Movie'){
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${this.state.title}&page=1&include_adult=false`)
             .then(res => {
+                console.log(res.data.results)
                 updateMedias(res.data.results, 'M', this.updateHeading())
                 this.setState({title: ''})
             })
@@ -35,13 +36,57 @@ class Search extends Component {
         else if(this.state.media === 'Game'){
             axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.title}&resources=game`)
             .then(res => {
+                console.log(res.data.results)
                 updateMedias(res.data.results, 'G', this.updateHeading())
                 this.setState({title: ''})
             })
             .catch(err => console.log(err))
         }
+        // else if(this.state.media === 'Book'){
+        //     axios.get(`https://cors-anywhere.herokuapp.com/https://www.goodreads.com/search/index.xml?key=abT9rgejl0M6Po9Yup7MCQ&q=${this.state.title}`)
+        //     .then(res => {
+        //         console.log(res.data)
+        //         const parser = new DOMParser();
+        //         let data = parser.parseFromString(res.data, 'text/xml')
+        //         console.log(data)
+        //         console.log(data.getElementsByTagName('work'))
+        //         updateMedias(res.data.docs, 'B', this.updateHeading())
+        //         this.setState({title: ''})
+        //     })
+        //     .catch(err => console.log(err))
+        // }
+        // else if(this.state.media === 'Book'){
+        //     axios.get(`http://openlibrary.org/search.json?title=${this.state.title}`)
+        //     .then(res => {
+        //         console.log(res.data.docs)
+        //         updateMedias(res.data.docs, 'B', this.updateHeading())
+        //         this.setState({title: ''})
+        //     })
+        //     .catch(err => console.log(err))
+        // }
+
+        // else if(this.state.media === 'Book'){
+        //     axios.get(`https://reststop.randomhouse.com/resources/works?search=${this.state.title}`)
+        //     .then(res => {
+        //         console.log(res.data)
+        //         // updateMedias(res.data.docs, 'B', this.updateHeading())
+        //         // this.setState({title: ''})
+        //     })
+        //     .catch(err => console.log(err))
+        // }
         else if(this.state.media === 'Book'){
-            console.log('Searching for a book...')
+            axios.get(`https://reststop.randomhouse.com/resources/titles?search=${this.state.title}`)
+            .then(res => {
+                if(res.data.title !== undefined){
+                    updateMedias(res.data.title, 'B', this.updateHeading())
+                    this.setState({title: ''})
+                } else{
+                    updateMedias([], 'B', this.updateHeading())
+                    this.setState({title: ''})
+                }
+                
+            })
+            .catch(err => console.log(err))
         }
     }
 

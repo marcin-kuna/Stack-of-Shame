@@ -5,6 +5,7 @@ import Index from './components/layout/Index';
 import Details from './components/movies/Details';
 import Stack from './components/layout/Stack';
 import GameDetails from './components/games/GameDetails';
+import BookDetails from './components/books/BookDetails';
 import { Provider } from './context'
 import './App.css';
 import './Badges.scss';
@@ -21,6 +22,7 @@ function App() {
               <Route exact path="/details/movie/:id" component={Details}/>
               <Route exact path="/stack" component={Stack}/>
               <Route exact path="/details/game/:id" component={GameDetails}/>
+              <Route exact path="/details/book/:id" component={BookDetails}/>
             </Switch>
           </div>
         </React.Fragment>

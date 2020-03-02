@@ -3,7 +3,7 @@
 $borderWidth: 20px;
 $animationTime: 1.5s;
 $border-color-default: #eee;
-$border-color-fill: black;
+$border-color-fill: #B57204;
 $size: 200px;
 
 //Create how many steps
@@ -83,7 +83,6 @@ $howManySteps: 10; //this needs to be even.
     height: 100%;
     //font-family: $work-sans;
     font-weight: 300;
-    background-image: url('./joystick_yellow.png');
     background-position: center;
     background-size: cover;
     div {
@@ -93,6 +92,18 @@ $howManySteps: 10; //this needs to be even.
       font-size: 12px;
       text-transform: uppercase;
     }
+  }
+
+  .progress-movies {
+    background-image: url('./img/film-projector-bronze.png');
+  }
+
+  .progress-games {
+    background-image: url('./img/joystick-bronze.png');
+  }
+
+  .progress-books {
+    background-image: url('./img/book-cover-bronze.png');
   }
 }
 

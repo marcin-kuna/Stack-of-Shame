@@ -6,7 +6,7 @@ class Badges extends Component {
         return (
             <Consumer>
                 {value => {
-                    const { movies_watched } = value;
+                    const { movies_watched, games_played, books_read } = value;
                     
                     return(
                         <div className="container">
@@ -19,7 +19,7 @@ class Badges extends Component {
                                         <span className="progress-right">
                                             <span className="progress-bar"></span>
                                         </span>
-                                        <div className="progress-value">
+                                        <div className="progress-value progress-movies">
                                             {movies_watched.length * 10}%
                                             <br/>
                                             <span>Completed</span>
@@ -27,30 +27,35 @@ class Badges extends Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-3">
-                                    <div className="progress" data-percentage="60">
+                                    <div className="progress" data-percentage={games_played.length * 10}>
                                         <span className="progress-left">
                                             <span className="progress-bar"></span>
                                         </span>
                                         <span className="progress-right">
                                             <span className="progress-bar"></span>
                                         </span>
-                                        <div className="progress-value">
-                                            60%
+                                        <div className="progress-value progress-games">
+                                            {games_played.length * 10}%
                                             <br/>
                                             <span>Completed</span>
                                         </div>
                                     </div>
+                                    <div>
+                                    {games_played.length * 10}%
+                                            <br/>
+                                            <span>Bronze Badge Completed</span>
+                                    </div>
                                 </div>
                                 <div className="col-sm-3">
-                                    <div className="progress" data-percentage="90">
+                                    <div className="progress" data-percentage={books_read.length * 10}>
                                         <span className="progress-left">
                                             <span className="progress-bar"></span>
                                         </span>
                                         <span className="progress-right">
                                             <span className="progress-bar"></span>
                                         </span>
-                                        <div className="progress-value">
-                                            90%
+                                        <div className="progress-value progress-books">
+                                            {books_read.length * 10}%
                                             <br/>
                                             <span>Completed</span>
                                         </div>

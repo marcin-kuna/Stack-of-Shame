@@ -21,13 +21,12 @@ class Games extends Component {
                                     <h3 className="text-center mb-4">{heading}</h3>
                                     <div className="row">
                                         {media_list.slice(0,8).map(item => (
-                                            <Game key={item.id} game = {item}/>
+                                            <Game key={item.id} {...item}/>
                                         ))}
                                     </div>
                                 </React.Fragment>
                             )
                         }
-                        
                     }
                 }}
             </Consumer>
