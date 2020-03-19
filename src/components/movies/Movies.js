@@ -17,9 +17,9 @@ class Movies extends Component {
                         else{
                             return (
                                 <React.Fragment>
-                                    <h3 className="text-center mb-4">{heading}</h3>
+                                    <h3 className="text-left mb-4">{heading}</h3>
                                     <div className="row">
-                                        {media_list.slice(0,8).map(item => (
+                                        {media_list.slice(0,4).map(item => (
                                             <Movie key={item.id} {...item}/>
                                         ))}
                                     </div>

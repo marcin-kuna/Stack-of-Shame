@@ -3,3 +3,68 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'Caveat Brush', cursive;
+    /* font-family: 'Rock Salt', cursive; */
+    /* font-family: 'Permanent Marker', cursive; */
+    /* font-family: 'Nanum Pen Script', cursive; */
+    background-color: #17A2B8;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+    /* background-color: #fff; */
+}
+
+.pseudo-logo span {
+    margin-bottom: -12px;
+}
+
+.navbar-brand {
+    /* font-family: 'Permanent Marker', cursive; */
+    /* font-family: 'Rock Salt', cursive; */
+    /* font-family: 'Shadows Into Light Two', cursive; */
+    font-size: 70px;
+    text-transform: uppercase;
+    /* border-bottom-right-radius: 225px 10px;
+    border-bottom-left-radius: 255px 10px;
+    border:solid 7px #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none; */
+}
+
+.navbar-hr {
+    border-color: #fff;
+    /* height: 5px; */
+    width: 100%;
+    font-family: 'Rock Salt', cursive;
+}
+
+.pin{
+    width: 50px;
+    height: 50px;
+}
+
+.search-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-jumbo {
+    width: 80px;
+    height: 80px;
+}
+
+.clip {
+    position: absolute;
+    right: -4px;
+    transform: rotate(50deg);
+}

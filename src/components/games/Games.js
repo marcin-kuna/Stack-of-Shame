@@ -20,7 +20,7 @@ class Games extends Component {
                                 <React.Fragment>
                                     <h3 className="text-center mb-4">{heading}</h3>
                                     <div className="row">
-                                        {media_list.slice(0,8).map(item => (
+                                        {media_list.slice(0,4).map(item => (
                                             <Game key={item.id} {...item}/>
                                         ))}
                                     </div>

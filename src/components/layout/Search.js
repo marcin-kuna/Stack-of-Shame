@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Consumer } from '../../context';
+import Magnifier from '../../img/search.svg';
 
 class Search extends Component {
     state = {
@@ -96,9 +97,10 @@ class Search extends Component {
                 {value => {
                     const { updateMedias } = value;
                     return (
-                        <div className="card card-body mb-4 p-4 col-md-10 mx-auto">
+                        <div className="card card-body mb-4 p-4 col-md-6 mx-auto d-inline-block">
                             <h1 className="display-5 text-center">
-                                <i className="fas fa-search px-3"></i>Search for...
+                                {/* <i className="fas fa-search px-3"></i>Search for... */}
+                                <img src={Magnifier} className="search-icon"/>Search for...
                             </h1>
                             <form onSubmit={(e) => this.findMedia(e, updateMedias)}>
                                 <div className="form-row align-items-center">
