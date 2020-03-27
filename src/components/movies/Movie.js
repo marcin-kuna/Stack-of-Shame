@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
-import PinImg from '../../img/pin.png';
 import InfoImg from '../../img/information.svg';
-import Page from '../../img/page.png';
-import Clip from '../../img/clip.png';
 
 class Movie extends Component {
 
@@ -31,7 +28,7 @@ class Movie extends Component {
                                     {/* <img src={Clip} alt="" className="clip" style={{top: `${Math.random() * 250 + 150}px`}}/> */}
                                     
                                     <Link to={`details/movie/${this.props.id}`} className="btn btn-secondary btn-block py-3 my-2"> 
-                                        <img src={InfoImg} className="icon"/> View Details
+                                        <img src={InfoImg} className="details-icon"/> View Details
                                         {/* <i className="fas fa-chevron-right pr-2"></i> View Details */}
                                     </Link>
                                     <button className="btn btn-primary btn-block py-3 my-2" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date})}><i className="fas fa-plus pr-2" ></i>Add to SoS</button>

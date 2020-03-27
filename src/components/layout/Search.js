@@ -43,38 +43,7 @@ class Search extends Component {
             })
             .catch(err => console.log(err))
         }
-        // else if(this.state.media === 'Book'){
-        //     axios.get(`https://cors-anywhere.herokuapp.com/https://www.goodreads.com/search/index.xml?key=abT9rgejl0M6Po9Yup7MCQ&q=${this.state.title}`)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         const parser = new DOMParser();
-        //         let data = parser.parseFromString(res.data, 'text/xml')
-        //         console.log(data)
-        //         console.log(data.getElementsByTagName('work'))
-        //         updateMedias(res.data.docs, 'B', this.updateHeading())
-        //         this.setState({title: ''})
-        //     })
-        //     .catch(err => console.log(err))
-        // }
-        // else if(this.state.media === 'Book'){
-        //     axios.get(`http://openlibrary.org/search.json?title=${this.state.title}`)
-        //     .then(res => {
-        //         console.log(res.data.docs)
-        //         updateMedias(res.data.docs, 'B', this.updateHeading())
-        //         this.setState({title: ''})
-        //     })
-        //     .catch(err => console.log(err))
-        // }
-
-        // else if(this.state.media === 'Book'){
-        //     axios.get(`https://reststop.randomhouse.com/resources/works?search=${this.state.title}`)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         // updateMedias(res.data.docs, 'B', this.updateHeading())
-        //         // this.setState({title: ''})
-        //     })
-        //     .catch(err => console.log(err))
-        // }
+        
         else if(this.state.media === 'Book'){
             axios.get(`https://reststop.randomhouse.com/resources/titles?search=${this.state.title}`)
             .then(res => {
@@ -97,30 +66,32 @@ class Search extends Component {
                 {value => {
                     const { updateMedias } = value;
                     return (
-                        <div className="card card-body mb-4 p-4 col-md-6 mx-auto d-inline-block">
-                            <h1 className="display-5 text-center">
-                                {/* <i className="fas fa-search px-3"></i>Search for... */}
-                                <img src={Magnifier} className="search-icon"/>Search for...
-                            </h1>
-                            <form onSubmit={(e) => this.findMedia(e, updateMedias)}>
-                                <div className="form-row align-items-center">
-                                    <div className="col-md-3 my-1">
-                                        <label className="mr-sm-2 sr-only" htmlFor="formSelect">Preference</label>
-                                        <select className="custom-select custom-select-lg mr-sm-2" id="formSelect" onChange={this.handleFormSelect}>
-                                            {/* <option defaultValue="Search for...">Search for...</option> */}
-                                            <option value="Movie">Movie</option>
-                                            <option value="Game">Game</option>
-                                            <option value="Book">Book</option>
-                                        </select>
+                        <div className="col-lg-6 mb-3 search-card px-4">
+                            <div className="card card-body h-100 search-card-body">
+                                <h1 className="display-5 text-center">
+                                    <img src={Magnifier} className="search-icon"/>
+                                    Search for...
+                                </h1>
+                                <form onSubmit={(e) => this.findMedia(e, updateMedias)}>
+                                    <div className="form-row align-items-center">
+                                        <div className="col-md-3 my-1">
+                                            <label className="mr-sm-2 sr-only" htmlFor="formSelect">Preference</label>
+                                            <select className="custom-select custom-select-lg mr-sm-2" id="formSelect" onChange={this.handleFormSelect}>
+                                                {/* <option defaultValue="Search for...">Search for...</option> */}
+                                                <option value="Movie">Movie</option>
+                                                <option value="Game">Game</option>
+                                                <option value="Book">Book</option>
+                                            </select>
+                                        </div>
+                                        <div className="col-md-6 my-1">
+                                            <input type="text" className="form-control form-control-lg" placeholder="Movie, game or book title..." name="title" value={this.state.title} onChange={this.handleInput}/>
+                                        </div>
+                                        <div className="col-md-3 my-1">
+                                            <button className="btn btn-lg btn-block search-btn" type="submit">Submit</button>
+                                        </div>
                                     </div>
-                                    <div className="col-md-6 my-1">
-                                        <input type="text" className="form-control form-control-lg" placeholder="Movie, game or book title..." name="title" value={this.state.title} onChange={this.handleInput}/>
-                                    </div>
-                                    <div className="col-md-3 my-1">
-                                        <button className="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     );
                 }}

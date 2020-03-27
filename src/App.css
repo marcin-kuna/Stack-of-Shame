@@ -6,16 +6,8 @@
 
 body{
     font-family: 'Caveat Brush', cursive;
-    /* font-family: 'Rock Salt', cursive; */
-    /* font-family: 'Permanent Marker', cursive; */
-    /* font-family: 'Nanum Pen Script', cursive; */
-    background-color: #17A2B8;
-}
-
-.logo{
-    width: 60px;
-    height: 60px;
-    /* background-color: #fff; */
+    background-color: rgb(70, 73, 112);
+    overflow-x: hidden;
 }
 
 .pseudo-logo span {
@@ -23,29 +15,43 @@ body{
 }
 
 .navbar-brand {
-    /* font-family: 'Permanent Marker', cursive; */
-    /* font-family: 'Rock Salt', cursive; */
-    /* font-family: 'Shadows Into Light Two', cursive; */
     font-size: 70px;
     text-transform: uppercase;
-    /* border-bottom-right-radius: 225px 10px;
-    border-bottom-left-radius: 255px 10px;
-    border:solid 7px #fff;
-    border-top: none;
-    border-left: none;
-    border-right: none; */
 }
 
-.navbar-hr {
-    border-color: #fff;
-    /* height: 5px; */
-    width: 100%;
-    font-family: 'Rock Salt', cursive;
+.to-stack {
+    position: absolute;
+    top: -80px;
+    right: -80px;
 }
 
-.pin{
-    width: 50px;
-    height: 50px;
+.to-stack-text {
+    text-decoration: none !important;
+    font-size: 1.5rem;
+    fill: #fff;
+    position: relative;
+    left: 40px;
+    z-index: 1;
+}
+
+.to-stack-arrow {
+    width: 11vh;
+    height: 11vh;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 110px;
+    right: 100px;
+    transition: filter .3s ease-in-out;
+}
+
+/* .to-stack-arrow:hover {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+} */
+
+.search-card-body {
+    background-color: #2D95FF;
+    background-color: #86E2F7;
+    border: none;
 }
 
 .search-icon {
@@ -53,18 +59,39 @@ body{
     height: 40px;
 }
 
-.icon {
+.search-btn {
+    background-color: #2D95FF;
+    transition: background-color .3s ease-in-out;
+}
+
+.search-btn:hover {
+    background-color: #2682dd;
+}
+
+.jumbo-1 {
+    background-color: #F4DA58;
+}
+
+.jumbo-2 {
+    background-color: #F68381;
+}
+
+.jumbo-3 {
+    background-color: #4EF09C;
+}
+
+.arrow-down {
+    transform:
+        rotateY(180deg)
+        rotate(-90deg);
+    height: 7vh;
+    width: 7vh;
+    position: relative;
+    top: 15px;
+    left: 5px;
+}
+
+.details-icon {
     width: 20px;
     height: 20px;
-}
-
-.icon-jumbo {
-    width: 80px;
-    height: 80px;
-}
-
-.clip {
-    position: absolute;
-    right: -4px;
-    transform: rotate(50deg);
 }
