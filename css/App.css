@@ -7,7 +7,8 @@
 
 body {
   font-family: 'Caveat Brush', cursive;
-  background-color: #17A2B8;
+  background-color: #464970;
+  overflow-x: hidden;
 }
 
 .pseudo-logo span {
@@ -19,26 +20,41 @@ body {
   text-transform: uppercase;
 }
 
-.stack-link {
-  text-decoration: none !important;
+.to-stack {
+  position: absolute;
+  top: -80px;
+  right: -80px;
 }
 
-.jumbo-arrow {
+.to-stack-text {
+  text-decoration: none !important;
+  font-size: 1.5rem;
+  fill: #fff;
+  position: relative;
+  left: 40px;
+  z-index: 1;
+}
+
+.to-stack-arrow {
+  width: 11vh;
+  height: 11vh;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+  position: absolute;
+  top: 110px;
+  right: 100px;
+  -webkit-transition: -webkit-filter .3s ease-in-out;
+  transition: -webkit-filter .3s ease-in-out;
+  transition: filter .3s ease-in-out;
+  transition: filter .3s ease-in-out, -webkit-filter .3s ease-in-out;
 }
 
-/* .card-deck {
-    height: 25vh !important;
-    max-height: 25vh !important;
+/* .to-stack-arrow:hover {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 } */
-/* .card-img-top {
-    width: 80px;
-    height: 80px;
-} */
-.pin {
-  width: 50px;
-  height: 50px;
+.search-card-body {
+  background-color: #86E2F7;
+  border: none;
 }
 
 .search-icon {
@@ -46,19 +62,72 @@ body {
   height: 40px;
 }
 
-.icon {
-  width: 20px;
-  height: 20px;
+.search-btn {
+  background-color: #2D95FF;
+  -webkit-transition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out;
 }
 
-/* .icon-jumbo {
-    width: 80px;
-    height: 80px;
-} */
-.clip {
-  position: absolute;
-  right: -4px;
-  -webkit-transform: rotate(50deg);
-          transform: rotate(50deg);
+.search-btn:hover {
+  background-color: #2682dd;
+}
+
+.jumbo-1 {
+  background-color: #F4DA58;
+}
+
+.jumbo-2 {
+  background-color: #F68381;
+}
+
+.jumbo-3 {
+  background-color: #4EF09C;
+}
+
+.arrow-down {
+  -webkit-transform: rotateY(180deg) rotate(-90deg);
+          transform: rotateY(180deg) rotate(-90deg);
+  height: 5vh;
+  width: 5vh;
+  position: relative;
+  top: 15px;
+  left: 5px;
+}
+
+.search-result-M {
+  color: #F4DA58;
+}
+
+.search-result-G {
+  color: #F68381;
+}
+
+.search-result-B {
+  color: #4EF09C;
+}
+
+.card-movie {
+  border: 2px solid #F4DA58;
+}
+
+@media (max-width: 1200px) {
+  .card-movie {
+    max-width: 100% !important;
+  }
+}
+
+.details-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.details-btn {
+  background-color: #86E2F7;
+  font-size: 1.3rem;
+}
+
+.add-movie-btn {
+  background-color: #F4DA58;
+  font-size: 1.3rem;
 }
 /*# sourceMappingURL=App.css.map */

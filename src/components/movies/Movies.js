@@ -17,12 +17,15 @@ class Movies extends Component {
                             return <Spinner/>}
                         else{
                             return (
-                                <div className="px-4 pt-4">
-                                    <div className="row mb-4 px-4">
+                                <div className="px-2">
+                                    <div className="row mb-2 ml-1">
                                         <h2 className="text-left text-white mb-4">{heading}</h2>
                                         <img src={ArrowDown} alt="" className="arrow-down"/>
                                     </div>
-                                    <div className="row">
+                                    
+                                    <div className="row" 
+                                    // style={{backgroundColor: `red`}}
+                                    >
                                         {media_list.slice(0,4).map(item => (
                                             <Movie key={item.id} {...item}/>
                                         ))}

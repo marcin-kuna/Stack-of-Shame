@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -49,7 +50,6 @@ body{
 } */
 
 .search-card-body {
-    background-color: #2D95FF;
     background-color: #86E2F7;
     border: none;
 }
@@ -61,6 +61,7 @@ body{
 
 .search-btn {
     background-color: #2D95FF;
+    outline: none;
     transition: background-color .3s ease-in-out;
 }
 
@@ -84,14 +85,92 @@ body{
     transform:
         rotateY(180deg)
         rotate(-90deg);
-    height: 7vh;
-    width: 7vh;
+    height: 5vh;
+    width: 5vh;
     position: relative;
     top: 15px;
     left: 5px;
 }
 
-.details-icon {
-    width: 20px;
-    height: 20px;
+.search-result-M {
+    color: #F4DA58;
+}
+
+.search-result-G {
+    color: #F68381;
+}
+
+.search-result-B {
+    color: #4EF09C;
+}
+
+.card-movie {
+    border: 3px solid #F4DA58;
+}
+
+.card-game {
+    border: 3px solid #F68381;
+}
+
+.card-book {
+    border: 3px solid #4EF09C;
+}
+
+.card-header-medium {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.card-body-medium {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.details-btn {
+    background-color: #86E2F7;
+    font-size: 1.3rem;
+    transition: background-color .3s ease-in-out;
+}
+
+.details-btn:hover {
+    background-color: rgb(77, 160, 228);
+}
+
+.add-movie-btn {
+    background-color: #F4DA58;
+    font-size: 1.3rem;
+    transition: background-color .3s ease-in-out;
+}
+
+.add-movie-btn:hover {
+    background-color: rgb(245, 211, 41);
+}
+
+.add-game-btn {
+    background-color: #F68381;
+    font-size: 1.3rem;
+    transition: background-color .3s ease-in-out;
+}
+
+.add-game-btn:hover {
+    background-color: rgb(238, 77, 75);
+}
+
+.add-book-btn {
+    background-color: #4EF09C;
+    font-size: 1.3rem;
+    transition: background-color .3s ease-in-out;
+}
+
+.add-book-btn:hover {
+    background-color: rgb(10, 218, 110);
 }

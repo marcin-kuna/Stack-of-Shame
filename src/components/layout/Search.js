@@ -17,8 +17,21 @@ class Search extends Component {
         this.setState({ [e.target.name]: e.target.value})
     }
 
-    updateHeading = () => {
-        return `Search results for: ${this.state.title}`
+    updateHeading = (search_code) => {
+        if (search_code === 'M') {
+            return (
+                <h2>Search results for: <span className="search-result-M">{this.state.title}</span></h2>
+            )
+        }
+        else if (search_code === 'G') {
+            return (
+                <h2>Search results for: <span className="search-result-G">{this.state.title}</span></h2>
+            )
+        } else {
+            return (
+                <h2>Search results for: <span className="search-result-B">{this.state.title}</span></h2>
+            )
+        }
     }
 
     findMedia = (e, updateMedias) => {
@@ -28,7 +41,7 @@ class Search extends Component {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${this.state.title}&page=1&include_adult=false`)
             .then(res => {
                 console.log(res.data.results)
-                updateMedias(res.data.results, 'M', this.updateHeading())
+                updateMedias(res.data.results, 'M', this.updateHeading('M'))
                 this.setState({title: ''})
             })
             .catch(err => console.log(err))
@@ -38,7 +51,7 @@ class Search extends Component {
             axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.title}&resources=game`)
             .then(res => {
                 console.log(res.data.results)
-                updateMedias(res.data.results, 'G', this.updateHeading())
+                updateMedias(res.data.results, 'G', this.updateHeading('G'))
                 this.setState({title: ''})
             })
             .catch(err => console.log(err))
@@ -48,7 +61,7 @@ class Search extends Component {
             axios.get(`https://reststop.randomhouse.com/resources/titles?search=${this.state.title}`)
             .then(res => {
                 if(res.data.title !== undefined){
-                    updateMedias(res.data.title, 'B', this.updateHeading())
+                    updateMedias(res.data.title, 'B', this.updateHeading('B'))
                     this.setState({title: ''})
                 } else{
                     updateMedias([], 'B', this.updateHeading())
@@ -66,7 +79,7 @@ class Search extends Component {
                 {value => {
                     const { updateMedias } = value;
                     return (
-                        <div className="col-lg-6 mb-3 search-card px-4">
+                        <div className="col-lg-6 mb-4 search-card px-2">
                             <div className="card card-body h-100 search-card-body">
                                 <h1 className="display-5 text-center">
                                     <img src={Magnifier} className="search-icon"/>

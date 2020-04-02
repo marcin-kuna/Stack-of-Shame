@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
 import InfoImg from '../../img/information.svg';
+import NoMovieImg from '../../img/no-movie-img.jpg';
+import AddImg from '../../img/plus.svg';
 
 class Movie extends Component {
 
@@ -10,31 +12,30 @@ class Movie extends Component {
             <Consumer>
                 {value => {
                     const { addMultimedia, movies_list_sos } = value;
-                    // console.log(value)
-                    return (
-                        <div className="col-md-3">
-                            <div className="card mb-4 shadow"
-                            //   style={{transform: `rotate(${Math.random() * 5 - 2.5}deg`, backgroundImage: `url(${Page})`, backgroundSize: `cover`}}
-                              >
-                                <div className="card-body">
-                                    <div className="row">
-                                        {/* <img src={PinImg} alt="pin" className="pin mx-auto mb-2" style={{transform: `rotate(${Math.random() * 100 - 100}deg`}}/> */}
-                                    </div>
-                                    <h3>{this.props.title}</h3>
-                                    <img src={`http://image.tmdb.org/t/p/w500${this.props.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light" 
-                                    // style={{transform: `rotate(${Math.random() * 5 - 2.5}deg`}}
-                                    />
 
-                                    {/* <img src={Clip} alt="" className="clip" style={{top: `${Math.random() * 250 + 150}px`}}/> */}
-                                    
-                                    <Link to={`details/movie/${this.props.id}`} className="btn btn-secondary btn-block py-3 my-2"> 
-                                        <img src={InfoImg} className="details-icon"/> View Details
-                                        {/* <i className="fas fa-chevron-right pr-2"></i> View Details */}
-                                    </Link>
-                                    <button className="btn btn-primary btn-block py-3 my-2" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date})}><i className="fas fa-plus pr-2" ></i>Add to SoS</button>
+                    return (
+                        <div className="col-md-6 col-lg-3 mb-4">
+                            <div className="card mb-4 shadow h-100 card-movie">
+                                <div className="card-body card-body-medium">
+                                    <h2 className="text-center card-header-medium">{this.props.title}</h2>
+
+                                    <div>
+                                        {this.props.poster_path ? <img src={`http://image.tmdb.org/t/p/w500${this.props.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light"/> : <img src={NoMovieImg} className="card-img waves-effect waves-block waves-light"/>}
+                                        
+                                        <Link to={`details/movie/${this.props.id}`} className="btn btn-block py-3 my-2 details-btn"> 
+                                            <img src={InfoImg} className="btn-icon"/> Viev Details
+                                        </Link>
+
+                                        <button className="btn btn-block py-3 my-2 add-movie-btn" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date})}><img src={AddImg} className="btn-icon"/> Add Movie</button>
+                                    </div>
                                     
                                 </div>
                             </div>
+
+                            
+
+                            
+                            
                         </div>
                         );
                 }}
