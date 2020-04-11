@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
-import Details from './components/movies/Details';
 import Stack from './components/layout/Stack';
+import MovieDetails from './components/movies/MovieDetails';
 import GameDetails from './components/games/GameDetails';
 import BookDetails from './components/books/BookDetails';
 import { Provider } from './context'
@@ -19,8 +19,8 @@ function App() {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Index}/>
-              <Route exact path="/details/movie/:id" component={Details}/>
               <Route exact path="/stack" component={Stack}/>
+              <Route exact path="/details/movie/:id" component={MovieDetails}/>
               <Route exact path="/details/game/:id" component={GameDetails}/>
               <Route exact path="/details/book/:id" component={BookDetails}/>
             </Switch>

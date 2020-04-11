@@ -174,3 +174,43 @@ body{
 .add-book-btn:hover {
     background-color: rgb(10, 218, 110);
 }
+
+
+/* DETAILS PAGE */
+
+.card-header-movie {
+    /* border-bottom: 3px solid #F4DA58; */
+    background-color: #F4DA58;
+    list-style-type: none;
+}
+
+.card-movie .list-group-item {
+    border-bottom: 1px solid #F4DA58;
+}
+
+.card-movie .list-group-item, .card-movie .card-text {
+    font-size: 1.3rem;
+}
+
+.card-movie .list-group-item strong {
+    font-size: 1.4rem;
+}
+
+.btn-icon-details, .go-back-arrow {
+    width: 35px;
+    height: 35px;
+}
+
+.add-movie-btn-details {
+    font-size: 1.5rem;
+}
+
+.btn-go-back {
+    background-color: #86E2F7;
+    transition: background-color .3s ease-in-out;
+    font-size: 1.5rem;
+}
+
+.btn-go-back:hover {
+    background-color: rgb(77, 160, 228);
+}
