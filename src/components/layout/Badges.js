@@ -14,13 +14,13 @@ class Badges extends Component {
                                 <div className="col-sm-3">
                                     <div className="progress" data-percentage={movies_watched.length * 10}>
                                         <span className="progress-left">
-                                            <span className="progress-bar"></span>
+                                            <span className="progress-bar progress-bar-movie"></span>
                                         </span>
                                         <span className="progress-right">
-                                            <span className="progress-bar"></span>
+                                            <span className="progress-bar progress-bar-movie"></span>
                                         </span>
                                         <div className="progress-value progress-movies">
-                                            {movies_watched.length * 10}%
+                                            {movies_watched.length}
                                             <br/>
                                             <span>Completed</span>
                                         </div>
@@ -40,11 +40,11 @@ class Badges extends Component {
                                             <span>Completed</span>
                                         </div>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                     {games_played.length * 10}%
                                             <br/>
                                             <span>Bronze Badge Completed</span>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="col-sm-3">
                                     <div className="progress" data-percentage={books_read.length * 10}>

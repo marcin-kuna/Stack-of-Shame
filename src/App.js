@@ -8,7 +8,7 @@ import GameDetails from './components/games/GameDetails';
 import BookDetails from './components/books/BookDetails';
 import { Provider } from './context'
 import './App.css';
-import './Badges.scss';
+// import './Badges.scss';
 
 function App() {
   return (

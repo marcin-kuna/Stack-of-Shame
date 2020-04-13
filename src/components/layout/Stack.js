@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
 import Moment from 'react-moment';
-import Badges from './Badges';
+// import Badges from './Badges';
+import ProgressMovies from './ProgressMovies';
+import ProgressGames from './ProgressGames';
+import ProgressBooks from './ProgressBooks';
+import InfoImg from '../../img/information.svg';
+import Checkmark from '../../img/checkmark.svg';
+import Trash from '../../img/trashcan.svg';
 
 
 class Stack extends Component {
@@ -12,70 +18,148 @@ class Stack extends Component {
             <Consumer>
             {value => {
                 const { movies_list_sos, games_list_sos, books_list_sos, removeMultimedia, addToWatched, addToPlayed, addToRead} = value;
-                // if (movies_list_sos === undefined || movies_list_sos.length === 0) {
-                //     return (
-                //         <h1>No movies to watch</h1>
-                //     )
-                // } else {
                    
                     return (
                         <React.Fragment>
                             {/* <Link to="/" className="btn btn-dark btn-sm mb-4">Home</Link> */}
-                            <h3 className="text-center mb-4">Movies to watch</h3>
-                            <div className="container row">
-                                {movies_list_sos.map(item => (
-                                <div className="col-md-4">
-                                    <div className="card mb-4 shadow-sm">
-                                        <div className="card-body" key={item.id}>
-                                            <h5 className="card-title">{item.title}</h5>
-                                            <img src={`http://image.tmdb.org/t/p/w500${item.image}`} alt="" className="card-img waves-effect waves-block waves-light img-block"/>
-                                            <p>Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
-                                            <Link to={`details/movie/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
-                                            <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(movies_list_sos, 'movies_list_sos', item.id)}><i className="fas fa-trash"></i></button>
-                                            {/* <button className="btn btn-danger col-md-4" onClick={() => deleteMovie(item.id)}><i className="fas fa-trash"></i></button> */}
-                                            <button className="btn btn-success col-md-4" onClick={() => addToWatched(movies_list_sos, 'movies_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
+                            <h1 className="text-center color-M mb-4">Movies to watch</h1>
+
+                            <div>
+                                {movies_list_sos.length === 0 ?
+                                <div>
+                                    <h1 className="text-center color-M mb-4">NONE!</h1> 
+                                    <ProgressMovies />
+                                </div>
+                                : 
+                                <div className="px-2">
+                                    <div className="row">
+                                    {movies_list_sos.map(item => (
+                                    <div className="col-md-6 col-lg-3 mb-4">
+                                        <div className="card mb-4 shadow h-100 card-movie">
+                                            <div className="card-body card-body-medium" key={item.id}>
+                                                <h3 className="text-center card-header-medium">{item.title}</h3>
+
+                                                <div>
+                                                    <img src={`http://image.tmdb.org/t/p/w500${item.image}`} alt="" className="card-img waves-effect waves-block waves-light"/>
+
+                                                    <div className="card-text d-flex justify-content-between">
+                                                        <Link to={`details/movie/${item.id}`} className="btn details-btn py-2 my-2">
+                                                            <img src={InfoImg} className="btn-icon"/>
+                                                        </Link>
+
+                                                        <button className="btn check-medium-btn py-2 my-2" onClick={() => addToWatched(movies_list_sos, 'movies_list_sos', item.title, item.id)}>
+                                                            <img src={Checkmark} className="btn-icon"/>
+                                                        </button>
+
+                                                        <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(movies_list_sos, 'movies_list_sos', item.id)}>
+                                                        <img src={Trash} className="btn-icon"/>
+                                                        </button>
+                                                    </div>
+
+                                                    <p className="date-added">Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    ))}
+                                    </div>
+                                    <ProgressMovies />
                                 </div>
-                                ))}
+                                }  
                             </div>
-                            <h3 className="text-center mb-4">Games to play</h3>
-                            <div className="container row">
-                                {games_list_sos.map(item => (
-                                <div className="col-md-4">
-                                    <div className="card mb-4 shadow-sm">
-                                        <div className="card-body" key={item.id}>
-                                            <h5 className="card-title">{item.title}</h5>
-                                            <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light img-block"/>
-                                            <p>Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
-                                            <Link to={`details/game/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
-                                            <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(games_list_sos, 'games_list_sos', item.id)}><i className="fas fa-trash"></i></button>
-                                            <button className="btn btn-success col-md-4" onClick={() => addToPlayed(games_list_sos, 'games_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
+
+                            <h1 className="text-center color-G mb-4">Games to play</h1>
+
+                            <div>
+                                {games_list_sos.length === 0 ? 
+                                <div>
+                                    <h1 className="text-center color-G mb-4">NONE!</h1>
+                                    <ProgressGames />
+                                </div>
+                                :
+                                <div className="px-2">
+                                    <div className="row">
+                                    {games_list_sos.map(item => (
+                                    <div className="col-md-6 col-lg-3 mb-4">
+                                        <div className="card mb-4 shadow h-100 card-game">
+                                            <div className="card-body card-body-medium" key={item.id}>
+                                                <h3 className="text-center card-header-medium">{item.title}</h3>
+
+                                                <div>
+                                                    <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light"/>
+
+                                                    <div className="card-text d-flex justify-content-between">
+                                                        <Link to={`details/game/${item.id}`} className="btn details-btn py-2 my-2">
+                                                            <img src={InfoImg} className="btn-icon"/>
+                                                        </Link>
+
+                                                        <button className="btn check-medium-btn py-2 my-2" onClick={() => addToPlayed(games_list_sos, 'games_list_sos', item.title, item.id)}>
+                                                            <img src={Checkmark} className="btn-icon"/>
+                                                        </button>
+
+                                                        <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(games_list_sos, 'games_list_sos', item.id)}>
+                                                            <img src={Trash} className="btn-icon"/>
+                                                        </button>
+                                                    </div>
+
+                                                    <p className="date-added">Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                ))}
-                            </div>
-                            <h3 className="text-center mb-4">Books to read</h3>
-                            <div className="container row">
-                                {books_list_sos.map(item => (
-                                <div className="col-md-4">
-                                    {console.log(item)}
-                                    <div className="card mb-4 shadow-sm">
-                                        <div className="card-body" key={item.id}>
-                                            <h5 className="card-title">{item.title}</h5>
-                                            <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light img-block"/>
-                                            <p>Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
-                                            <Link to={`details/book/${item.id}`} className="btn btn-info col-md-4"><i className="fas fa-info-circle"></i></Link>
-                                            <button className="btn btn-danger col-md-4" onClick={() => removeMultimedia(books_list_sos, 'books_list_sos', item.id)}><i className="fas fa-trash"></i></button>
-                                            <button className="btn btn-success col-md-4" onClick={() => addToRead(books_list_sos, 'books_list_sos', item.title, item.id)}><i className="fas fa-check-circle"></i></button>
-                                        </div>
+                                    ))}
                                     </div>
+                                    <ProgressGames />
                                 </div>
-                                ))}
+                                }
                             </div>
-                                
-                            {/* <Badges /> */}
+
+                            <h1 className="text-center color-B mb-4">Books to read</h1>
+
+                            <div>
+                                {books_list_sos.length === 0 ? 
+                                <div>
+                                    <h1 className="text-center color-B mb-4">NONE!</h1>
+                                    <ProgressBooks />
+                                </div>
+                                :
+                                <div className="px-2">
+                                    <div className="row">
+                                        {books_list_sos.map(item => (
+                                        <div className="col-md-6 col-lg-3 mb-4">
+                                            <div className="card mb-4 shadow h-100 card-book">
+                                                <div className="card-body card-body-medium" key={item.id}>
+
+                                                    <h3 className="text-center card-header-medium">{item.title}</h3>
+
+                                                    <div>
+                                                        <img src={item.image} alt="" className="card-img waves-effect waves-block waves-light"/>
+
+                                                        <div className="card-text d-flex justify-content-between">
+                                                            <Link to={`details/book/${item.id}`} className="btn details-btn py-2 my-2">
+                                                                <img src={InfoImg} className="btn-icon"/>
+                                                            </Link>
+
+                                                            <button className="btn check-medium-btn py-2 my-2" onClick={() => addToRead(books_list_sos, 'books_list_sos', item.title, item.id)}>
+                                                                <img src={Checkmark} className="btn-icon"/>
+                                                            </button>
+
+                                                            <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(books_list_sos, 'books_list_sos', item.id)}>
+                                                                <img src={Trash} className="btn-icon"/>
+                                                            </button>
+                                                        </div>
+
+                                                        <p className="date-added">Added: <Moment format="DD/MM/YYYY">{item.date}</Moment></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ))}
+                                        </div>
+                                        <ProgressBooks />
+                                    </div>
+                                    }
+                                </div>
                         </React.Fragment>
                     )
                 // }

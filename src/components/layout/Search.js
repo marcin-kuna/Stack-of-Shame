@@ -20,16 +20,16 @@ class Search extends Component {
     updateHeading = (search_code) => {
         if (search_code === 'M') {
             return (
-                <h2>Search results for: <span className="search-result-M">{this.state.title}</span></h2>
+                <h2>Search results for: <span className="color-M">{this.state.title}</span></h2>
             )
         }
         else if (search_code === 'G') {
             return (
-                <h2>Search results for: <span className="search-result-G">{this.state.title}</span></h2>
+                <h2>Search results for: <span className="color-G">{this.state.title}</span></h2>
             )
         } else {
             return (
-                <h2>Search results for: <span className="search-result-B">{this.state.title}</span></h2>
+                <h2>Search results for: <span className="color-B">{this.state.title}</span></h2>
             )
         }
     }

@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 20px solid #eee;
+  border: 20px solid #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -98,18 +98,6 @@
 .progress .progress-value span {
   font-size: 12px;
   text-transform: uppercase;
-}
-
-.progress .progress-movies {
-  background-image: url("./img/film-projector-bronze.png");
-}
-
-.progress .progress-games {
-  background-image: url("./img/joystick-bronze.png");
-}
-
-.progress .progress-books {
-  background-image: url("./img/book-cover-bronze.png");
 }
 
 /* This for loop creates the 	necessary css animation names 

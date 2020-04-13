@@ -11,6 +11,12 @@ body{
     overflow-x: hidden;
 }
 
+.pseudo-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
 .pseudo-logo span {
     margin-bottom: -12px;
 }
@@ -92,15 +98,15 @@ body{
     left: 5px;
 }
 
-.search-result-M {
+.color-M {
     color: #F4DA58;
 }
 
-.search-result-G {
+.color-G {
     color: #F68381;
 }
 
-.search-result-B {
+.color-B {
     color: #4EF09C;
 }
 
@@ -155,23 +161,23 @@ body{
     background-color: rgb(245, 211, 41);
 }
 
-.add-game-btn {
+.add-game-btn, .trash-medium-btn {
     background-color: #F68381;
     font-size: 1.3rem;
     transition: background-color .3s ease-in-out;
 }
 
-.add-game-btn:hover {
+.add-game-btn:hover, .trash-medium-btn:hover {
     background-color: rgb(238, 77, 75);
 }
 
-.add-book-btn {
+.add-book-btn, .check-medium-btn {
     background-color: #4EF09C;
     font-size: 1.3rem;
     transition: background-color .3s ease-in-out;
 }
 
-.add-book-btn:hover {
+.add-book-btn:hover, .check-medium-btn:hover {
     background-color: rgb(10, 218, 110);
 }
 
@@ -255,4 +261,46 @@ body{
 
 .card-book .list-group-item strong {
     font-size: 1.4rem;
+}
+
+/* Stack */
+
+.date-added {
+    position: absolute;
+    bottom: -20px;
+    right: 5px;
+}
+
+/* Progress Bars */
+
+.progress {
+    height: 25px;
+}
+
+.progress-movies {
+    background-color: rgb(244, 218, 88, .4);
+}
+
+.progress-games {
+    background-color: rgb(246, 131, 129, .4);
+}
+
+.progress-books {
+    background-color: rgb(78, 240, 156, .4);
+}
+
+.progress-text {
+    color: #000;
+}
+
+.progress-bar-movies {
+    background-color: #F4DA58;
+}
+
+.progress-bar-games {
+    background-color: #F68381;
+}
+
+.progress-bar-books {
+    background-color: #4EF09C;
 }

@@ -2,7 +2,7 @@
 //styling
 $borderWidth: 20px;
 $animationTime: 1.5s;
-$border-color-default: #eee;
+$border-color-default: #fff;
 $border-color-fill: #B57204;
 $size: 200px;
 
@@ -49,6 +49,11 @@ $howManySteps: 10; //this needs to be even.
     top: 0;
     border-color: $border-color-fill;
   }
+
+  // .progress-bar-movie {
+  //   border-color: #F4DA58;
+  // }
+
   .progress-left .progress-bar {
     left: 100%;
     border-top-right-radius: ($size/2);;
@@ -95,15 +100,15 @@ $howManySteps: 10; //this needs to be even.
   }
 
   .progress-movies {
-    background-image: url('./img/film-projector-bronze.png');
+    // background-image: url('./img/film-projector-bronze.png');
   }
 
   .progress-games {
-    background-image: url('./img/joystick-bronze.png');
+    // background-image: url('./img/joystick-bronze.png');
   }
 
   .progress-books {
-    background-image: url('./img/book-cover-bronze.png');
+    // background-image: url('./img/book-cover-bronze.png');
   }
 }
 
