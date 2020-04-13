@@ -17,7 +17,7 @@ class Games extends Component {
                             return <Spinner/>}
                         else{
                             return (
-                                <div className="px-2">
+                                <div className="px-2 mb-4">
                                     <div className="row mb-2 ml-1">
                                         <h2 className="text-left text-white mb-4">{heading}</h2>
                                         <img src={ArrowDown} alt="" className="arrow-down"/>

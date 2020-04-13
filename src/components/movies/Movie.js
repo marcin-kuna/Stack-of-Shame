@@ -27,15 +27,9 @@ class Movie extends Component {
                                         </Link>
 
                                         <button className="btn btn-block py-3 my-2 add-movie-btn" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date})}><img src={AddImg} className="btn-icon"/> Add Movie</button>
-                                    </div>
-                                    
+                                    </div> 
                                 </div>
-                            </div>
-
-                            
-
-                            
-                            
+                            </div>  
                         </div>
                         );
                 }}

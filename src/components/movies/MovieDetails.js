@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
 import AddImg from '../../img/plus.svg';
 import Arrow from '../../img/arrow.svg';
+import ToStack from '../layout/ToStack';
 
 
 class MovieDetails extends Component {
@@ -31,14 +32,16 @@ class MovieDetails extends Component {
             return <Spinner />
         } else {
             return (
+                
                 <Consumer>
                     {value => {
                         const { addMultimedia, movies_list_sos } = value;
                             return(
+                                
                                 <div className="row mb-4">
-
-                                    <div className="col-md-6 d-flex flex-column justify-content-between mt-3">
-                                        
+                                    <ToStack />
+                                    
+                                    <div className="col-md-6 mt-3">
                                         <div className="card card-movie">
                                             <h2 className="card-header card-header-movie card-header-medium rounded-0 text-center">{details.title}</h2>
                                             <img src={`http://image.tmdb.org/t/p/original${details.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light rounded-0"/>

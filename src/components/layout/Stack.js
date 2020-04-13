@@ -20,7 +20,7 @@ class Stack extends Component {
                    
                     return (
                         <React.Fragment>
-                            <Link to="/" className="btn btn-dark btn-sm mb-4">Home</Link>
+                            {/* <Link to="/" className="btn btn-dark btn-sm mb-4">Home</Link> */}
                             <h3 className="text-center mb-4">Movies to watch</h3>
                             <div className="container row">
                                 {movies_list_sos.map(item => (
@@ -75,7 +75,7 @@ class Stack extends Component {
                                 ))}
                             </div>
                                 
-                            <Badges />
+                            {/* <Badges /> */}
                         </React.Fragment>
                     )
                 // }
