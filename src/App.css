@@ -37,7 +37,7 @@ body{
     font-size: 1.5rem;
     fill: #fff;
     position: relative;
-    left: 40px;
+    left: 50px;
     z-index: 1;
 }
 
@@ -47,8 +47,31 @@ body{
     transform: rotateY(180deg);
     position: absolute;
     top: 110px;
-    right: 100px;
+    right: 90px;
     transition: filter .3s ease-in-out;
+}
+
+@media (max-width: 768px){
+    .pseudo-logo span {
+        font-size: 22px;
+        margin-bottom: -5px;
+    }
+
+    .navbar-brand {
+        font-size: 45px;
+    }
+
+    .to-stack-text {
+        font-size: 1.2rem;
+        left: 80px;
+        bottom: 10px;
+    }
+
+    .to-stack-arrow {
+        width: 8vh;
+        height: 8vh;
+    }
+
 }
 
 /* .to-stack-arrow:hover {

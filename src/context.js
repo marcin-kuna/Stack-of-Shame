@@ -64,6 +64,27 @@ export class Provider extends Component {
         this.removeMultimedia(mediaList, type, id);
     }
 
+    componentWillMount() {
+        localStorage.getItem('movies_list_sos') && this.setState({
+            movies_list_sos: JSON.parse(localStorage.getItem('movies_list_sos'))
+        })
+        localStorage.getItem('games_list_sos') && this.setState({
+            games_list_sos: JSON.parse(localStorage.getItem('games_list_sos'))
+        })
+        localStorage.getItem('books_list_sos') && this.setState({
+            books_list_sos: JSON.parse(localStorage.getItem('books_list_sos'))
+        })
+        localStorage.getItem('movies_watched') && this.setState({
+            movies_watched: JSON.parse(localStorage.getItem('movies_watched'))
+        })
+        localStorage.getItem('games_played') && this.setState({
+            games_played: JSON.parse(localStorage.getItem('games_played'))
+        })
+        localStorage.getItem('books_read') && this.setState({
+            books_read: JSON.parse(localStorage.getItem('books_read'))
+        })
+    }
+
     componentDidMount() {
         axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`)
             .then(res => {
@@ -71,6 +92,15 @@ export class Provider extends Component {
                 this.setState({media_list: res.data.results})
             })
             .catch(err => console.log(err))
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('movies_list_sos', JSON.stringify(nextState.movies_list_sos));
+        localStorage.setItem('games_list_sos', JSON.stringify(nextState.games_list_sos));
+        localStorage.setItem('books_list_sos', JSON.stringify(nextState.books_list_sos));
+        localStorage.setItem('movies_watched', JSON.stringify(nextState.movies_watched));
+        localStorage.setItem('games_played', JSON.stringify(nextState.games_played));
+        localStorage.setItem('books_read', JSON.stringify(nextState.books_read));
     }
 
     render() {
