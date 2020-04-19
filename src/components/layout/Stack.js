@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../context';
 import Moment from 'react-moment';
-// import Badges from './Badges';
 import ProgressMovies from './ProgressMovies';
 import ProgressGames from './ProgressGames';
 import ProgressBooks from './ProgressBooks';
@@ -21,7 +20,6 @@ class Stack extends Component {
                    
                     return (
                         <React.Fragment>
-                            {/* <Link to="/" className="btn btn-dark btn-sm mb-4">Home</Link> */}
                             <h1 className="text-center color-M mb-4">Movies to watch</h1>
 
                             <div>
@@ -169,4 +167,4 @@ class Stack extends Component {
     }
 }
 
-export default Stack
+export default Stack;

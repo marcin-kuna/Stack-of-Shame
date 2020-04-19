@@ -23,9 +23,7 @@ class Movies extends Component {
                                         <img src={ArrowDown} alt="" className="arrow-down"/>
                                     </div>
                                     
-                                    <div className="row" 
-                                    // style={{backgroundColor: `red`}}
-                                    >
+                                    <div className="row">
                                         {media_list.slice(0,4).map(item => (
                                             <Movie key={item.id} {...item}/>
                                         ))}
@@ -40,4 +38,4 @@ class Movies extends Component {
     }
 }
 
-export default Movies
+export default Movies;

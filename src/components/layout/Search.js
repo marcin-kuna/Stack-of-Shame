@@ -67,7 +67,6 @@ class Search extends Component {
                     updateMedias([], 'B', this.updateHeading())
                     this.setState({title: ''})
                 }
-                
             })
             .catch(err => console.log(err))
         }
@@ -113,4 +112,4 @@ class Search extends Component {
     }
 }
 
-export default Search
+export default Search;

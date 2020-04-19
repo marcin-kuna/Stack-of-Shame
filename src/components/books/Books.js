@@ -12,9 +12,7 @@ class Books extends Component {
                     const { heading, media_list, search_code } = value;
                     if (search_code !== 'B') {
                         return <span></span>} 
-                    // if (media_list.length === 1) {
-                    //     return <p>Hey, i'm solo!</p>
-                    // }
+
                     else {
                         if (media_list === undefined || media_list.length === 0) {
                             return <Spinner/>}

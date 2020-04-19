@@ -22,4 +22,4 @@ const ToStack = () => {
     )
 }
 
-export default ToStack
+export default ToStack;

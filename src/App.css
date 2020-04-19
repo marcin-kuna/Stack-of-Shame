@@ -74,10 +74,6 @@ body{
 
 }
 
-/* .to-stack-arrow:hover {
-    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
-} */
-
 .search-card-body {
     background-color: #86E2F7;
     border: none;
@@ -204,7 +200,6 @@ body{
     background-color: rgb(10, 218, 110);
 }
 
-
 /* DETAILS PAGE */
 
 .add-btn-details {
@@ -214,7 +209,6 @@ body{
 /* Movie */
 
 .card-header-movie {
-    /* border-bottom: 3px solid #F4DA58; */
     background-color: #F4DA58;
     list-style-type: none;
 }
@@ -235,8 +229,6 @@ body{
     width: 35px;
     height: 35px;
 }
-
-
 
 .btn-go-back {
     background-color: #86E2F7;

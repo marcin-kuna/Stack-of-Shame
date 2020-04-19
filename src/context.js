@@ -88,7 +88,6 @@ export class Provider extends Component {
     componentDidMount() {
         axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`)
             .then(res => {
-                // console.log(res.data)
                 this.setState({media_list: res.data.results})
             })
             .catch(err => console.log(err))

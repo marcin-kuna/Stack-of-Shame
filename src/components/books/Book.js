@@ -12,7 +12,7 @@ class Book extends Component {
             <Consumer>
                 {value => {
                     const { addMultimedia, books_list_sos } = value;
-                    // console.log(value)
+
                     return (
                         <div className="col-md-6 col-lg-3 mb-4">
                             <div className="card mb-4 shadow-sm h-100 card-book">
