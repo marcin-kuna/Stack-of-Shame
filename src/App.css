@@ -25,35 +25,16 @@ nav {
 
 .logo {
     position: absolute;
-    top: 75px;
+    top: 30px;
     left: 30px;
-    transform: translateY(-50%);
     height: 70px;
 }
 
 .to-stack {
     position: absolute;
-    top: 75px;
+    top: 30px;
     right: 30px;
-    transform: translateY(-50%);
     height: 65px;
-}
-
-@media (max-width: 768px){
-
-    .navbar-brand {
-        font-size: 60px;
-    }
-
-    .logo {
-        height: 60px;
-        left: 20px;
-    }
-
-    .to-stack {
-        height: 60px;
-        right: 20px;
-    }
 }
 
 .search-card-body {
@@ -300,4 +281,38 @@ nav {
 
 .progress-bar-books {
     background-color: #4EF09C;
+}
+
+@media (max-width: 768px){
+
+    .navbar-brand {
+        font-size: 60px;
+    }
+
+    .logo {
+        height: 60px;
+        top: 20px;
+        left: 20px;
+    }
+
+    .to-stack {
+        height: 60px;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        height: 50px;
+        top: 12px;
+        left: 12px;
+    }
+
+    .to-stack {
+        height: 50px;
+        top: 12px;
+        right: 12px;
+    }
 }

@@ -4,7 +4,7 @@ import Logo from '../../img/logo.svg';
 
 const Navbar = () => {
     return (
-        <nav className="navbar text-white mb-5">
+        <nav className="navbar text-white mb-sm-2 mb-md-4">
             <Link to="/">
                 <img src={Logo} alt="" className="logo"/>
             </Link>
