@@ -304,15 +304,19 @@ nav {
 
 @media (max-width: 480px) {
 
+    .navbar-brand {
+        font-size: 50px;
+    }
+
     .logo {
-        height: 50px;
-        top: 12px;
-        left: 12px;
+        height: 45px;
+        top: 10px;
+        left: 10px;
     }
 
     .to-stack {
-        height: 50px;
-        top: 12px;
-        right: 12px;
+        height: 45px;
+        top: 10px;
+        right: 10px;
     }
 }
