@@ -27,18 +27,18 @@ class Jumbotrons extends Component {
                     
                     return(
                         <div className="col-lg-6 mb-4">
-                            <div className="row justify-content-between px-2">
-                                <div className="col-3 text-center rounded p-2 jumbo-1">
+                            <div className="row px-2">
+                                <div className="col-4 text-center rounded-left p-2 jumbo-1">
                                     <img src={MovieImg} alt="" className="img-fluid"/>
                                     <h2>{movies_list_sos.length}</h2>
                                     <h2>Movie{singularOrPluralM}</h2>
                                 </div>
-                                <div className="col-3 text-center rounded p-2 jumbo-2">
+                                <div className="col-4 text-center p-2 jumbo-2">
                                     <img src={GameImg} alt="" className="img-fluid"/>
                                     <h2>{games_list_sos.length}</h2>
                                     <h2>Game{singularOrPluralG}</h2>
                                 </div>
-                                <div className="col-3 text-center rounded p-2 jumbo-3">
+                                <div className="col-4 text-center rounded-right p-2 jumbo-3">
                                     <img src={BookImg} alt="" className="img-fluid"/>
                                     <h2>{books_list_sos.length}</h2>
                                     <h2>Book{singularOrPluralB}</h2>

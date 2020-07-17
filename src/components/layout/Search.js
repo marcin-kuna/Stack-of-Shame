@@ -80,7 +80,7 @@ class Search extends Component {
                     return (
                         <div className="col-lg-6 mb-4 search-card px-2">
                             <div className="card card-body h-100 search-card-body">
-                                <h1 className="display-sm-4 display-md-5 text-center">
+                                <h1 className="display-5 text-center">
                                     <img src={Magnifier} className="search-icon" alt="magnifying glass"/>
                                     Search for...
                                 </h1>
