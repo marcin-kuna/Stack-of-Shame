@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ToStack from './ToStack';
 import Logo from '../../img/logo.svg';
 
 const Navbar = () => {

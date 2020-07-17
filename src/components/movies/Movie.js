@@ -20,13 +20,13 @@ class Movie extends Component {
                                     <h2 className="text-center card-header-medium">{this.props.title}</h2>
 
                                     <div>
-                                        {this.props.poster_path ? <img src={`http://image.tmdb.org/t/p/w500${this.props.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light"/> : <img src={NoMovieImg} className="card-img waves-effect waves-block waves-light"/>}
+                                        {this.props.poster_path ? <img src={`http://image.tmdb.org/t/p/w500${this.props.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light"/> : <img src={NoMovieImg} className="card-img waves-effect waves-block waves-light" alt=""/>}
                                         
                                         <Link to={`details/movie/${this.props.id}`} className="btn btn-block py-3 my-2 details-btn"> 
-                                            <img src={InfoImg} className="btn-icon"/> Viev Details
+                                            <img src={InfoImg} className="btn-icon" alt="info-icon"/> Viev Details
                                         </Link>
 
-                                        <button className="btn btn-block py-3 my-2 add-movie-btn" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date})}><img src={AddImg} className="btn-icon"/> Add Movie</button>
+                                        <button className="btn btn-block py-3 my-2 add-movie-btn" onClick={() => addMultimedia(movies_list_sos, 'movies_list_sos', {title: this.props.title, id: this.props.id, image: this.props.poster_path, date: new Date()})}><img src={AddImg} className="btn-icon" alt="add-icon"/> Add Movie</button>
                                     </div> 
                                 </div>
                             </div>  

@@ -81,7 +81,7 @@ class Search extends Component {
                         <div className="col-lg-6 mb-4 search-card px-2">
                             <div className="card card-body h-100 search-card-body">
                                 <h1 className="display-5 text-center">
-                                    <img src={Magnifier} className="search-icon"/>
+                                    <img src={Magnifier} className="search-icon" alt="magnifying glass"/>
                                     Search for...
                                 </h1>
                                 <form onSubmit={(e) => this.findMedia(e, updateMedias)}>

@@ -84,10 +84,10 @@ class MovieDetails extends Component {
                                                 <strong>Tagline</strong>: {details.tagline}
                                             </li>
                                             <li className="list-group-item">
-                                                <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank" className="text-decoration-none">{details.homepage}</a>) : (<span>none</span>)}
+                                                <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank" rel="noopener noreferrer" className="text-decoration-none">{details.homepage}</a>) : (<span>none</span>)}
                                             </li>
                                             <li className="list-group-item">
-                                                <strong>IMDb</strong>: <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" className="text-decoration-none">{details.title}</a>
+                                                <strong>IMDb</strong>: <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" rel="noopener noreferrer" className="text-decoration-none">{details.title}</a>
                                             </li>
                                         </ul>
 
@@ -126,8 +126,8 @@ class MovieDetails extends Component {
 
                                             <button className="btn btn-block py-3 add-movie-btn add-movie-btn-details" onClick={() => 
                                                 // console.log(this.state.details)
-                                                addMultimedia(movies_list_sos, 'movies_list_sos', {title: details.title, id: details.id, image: details.poster_path, date: new Date})}>
-                                                <img src={AddImg} className="btn-icon-details"/> Add Movie
+                                                addMultimedia(movies_list_sos, 'movies_list_sos', {title: details.title, id: details.id, image: details.poster_path, date: new Date()})}>
+                                                <img src={AddImg} className="btn-icon-details" alt="add-icon"/> Add Movie
                                             </button>
                                         </div>    
                                     </div>

@@ -18,7 +18,7 @@ class ProgressMovies extends Component {
                                 aria-valuemin='0'
                                 aria-valuemax='100'
                                 style={{width: `${movies_watched.length}%`}}>
-                                <span className="progress-text px-2" style={{fontSize: '20px'}}>{movies_watched.length} <img src={Checkmark} className="pb-1" style={{height: '20px'}}/></span>
+                                <span className="progress-text px-2" style={{fontSize: '20px'}}>{movies_watched.length} <img src={Checkmark} className="pb-1" style={{height: '20px'}} alt="checkmark"/></span>
                             </div>
                         </div>
                     )

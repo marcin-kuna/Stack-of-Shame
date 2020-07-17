@@ -96,7 +96,7 @@ class BookDetails extends Component {
                                                 <img src={Arrow} alt="" className="go-back-arrow"/> Go back
                                             </Link>
 
-                                            <button className="btn btn-block py-3 add-book-btn add-btn-details" onClick={() => addMultimedia(books_list_sos, 'books_list_sos', {title: details.titleweb, id: details.isbn, image: details[`@uri`], date: new Date})}><img src={AddImg} className="btn-icon"/> Add to SoS</button>
+                                            <button className="btn btn-block py-3 add-book-btn add-btn-details" onClick={() => addMultimedia(books_list_sos, 'books_list_sos', {title: details.titleweb, id: details.isbn, image: details[`@uri`], date: new Date()})}><img src={AddImg} className="btn-icon" alt="add-icon"/> Add to SoS</button>
                                         </div> 
                                     </div>
                                 </div>

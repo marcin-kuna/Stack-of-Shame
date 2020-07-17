@@ -42,15 +42,15 @@ class Stack extends Component {
 
                                                     <div className="card-text d-flex justify-content-between">
                                                         <Link to={`details/movie/${item.id}`} className="btn details-btn py-2 my-2">
-                                                            <img src={InfoImg} className="btn-icon"/>
+                                                            <img src={InfoImg} className="btn-icon" alt="info-icon"/>
                                                         </Link>
 
                                                         <button className="btn check-medium-btn py-2 my-2" onClick={() => addToWatched(movies_list_sos, 'movies_list_sos', item.title, item.id)}>
-                                                            <img src={Checkmark} className="btn-icon"/>
+                                                            <img src={Checkmark} className="btn-icon" alt="checkmark"/>
                                                         </button>
 
                                                         <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(movies_list_sos, 'movies_list_sos', item.id)}>
-                                                        <img src={Trash} className="btn-icon"/>
+                                                        <img src={Trash} className="btn-icon" alt="trash-icon"/>
                                                         </button>
                                                     </div>
 
@@ -88,15 +88,15 @@ class Stack extends Component {
 
                                                     <div className="card-text d-flex justify-content-between">
                                                         <Link to={`details/game/${item.id}`} className="btn details-btn py-2 my-2">
-                                                            <img src={InfoImg} className="btn-icon"/>
+                                                            <img src={InfoImg} className="btn-icon" alt="info-icon"/>
                                                         </Link>
 
                                                         <button className="btn check-medium-btn py-2 my-2" onClick={() => addToPlayed(games_list_sos, 'games_list_sos', item.title, item.id)}>
-                                                            <img src={Checkmark} className="btn-icon"/>
+                                                            <img src={Checkmark} className="btn-icon" alt="checkmark"/>
                                                         </button>
 
                                                         <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(games_list_sos, 'games_list_sos', item.id)}>
-                                                            <img src={Trash} className="btn-icon"/>
+                                                            <img src={Trash} className="btn-icon" alt="trash-icon"/>
                                                         </button>
                                                     </div>
 
@@ -135,15 +135,15 @@ class Stack extends Component {
 
                                                         <div className="card-text d-flex justify-content-between">
                                                             <Link to={`details/book/${item.id}`} className="btn details-btn py-2 my-2">
-                                                                <img src={InfoImg} className="btn-icon"/>
+                                                                <img src={InfoImg} className="btn-icon" alt="info-icon"/>
                                                             </Link>
 
                                                             <button className="btn check-medium-btn py-2 my-2" onClick={() => addToRead(books_list_sos, 'books_list_sos', item.title, item.id)}>
-                                                                <img src={Checkmark} className="btn-icon"/>
+                                                                <img src={Checkmark} className="btn-icon" alt="checkmark"/>
                                                             </button>
 
                                                             <button className="btn trash-medium-btn py-2 my-2" onClick={() => removeMultimedia(books_list_sos, 'books_list_sos', item.id)}>
-                                                                <img src={Trash} className="btn-icon"/>
+                                                                <img src={Trash} className="btn-icon" alt="trash-icon"/>
                                                             </button>
                                                         </div>
 

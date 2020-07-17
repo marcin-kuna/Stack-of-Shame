@@ -92,14 +92,14 @@ class GameDetails extends Component {
                                             </li>
                                             <li className="list-group-item">
                                                 <strong>Similar Games</strong>: {details.similar_games ? details.similar_games.map((item, index) => (
-                                                    <span key={item.id}>{(index ? ', ' : '')}<a href={item.site_detail_url} target="_blank" className="text-decoration-none">{item.name}</a></span>
+                                                    <span key={item.id}>{(index ? ', ' : '')}<a href={item.site_detail_url} target="_blank" rel="noopener noreferrer" className="text-decoration-none">{item.name}</a></span>
                                                 )) : <span>No data</span>}
                                             </li>
                                             {/* <li className="list-group-item">
                                                 <strong>Homepage</strong>: {details.homepage ? (<a href={details.homepage} target="_blank">{details.homepage}</a>) : (<span>none</span>)}
                                             </li> */}
                                             <li className="list-group-item">
-                                                <strong>Overview</strong>: <a href={details.site_detail_url} target="_blank" className="text-decoration-none">{details.name}</a>
+                                                <strong>Overview</strong>: <a href={details.site_detail_url} target="_blank" rel="noopener noreferrer" className="text-decoration-none">{details.name}</a>
                                             </li>
                                         </ul>
 
@@ -108,7 +108,7 @@ class GameDetails extends Component {
                                                 <img src={Arrow} alt="" className="go-back-arrow"/> Go back
                                             </Link>
 
-                                            <button className="btn btn-block py-3 add-game-btn add-btn-details" onClick={() => addMultimedia(games_list_sos, 'games_list_sos', {title: details.name, id: details.guid, image: details.image.original_url, date: new Date})}><img src={AddImg} className="btn-icon"/> Add to SoS</button>
+                                            <button className="btn btn-block py-3 add-game-btn add-btn-details" onClick={() => addMultimedia(games_list_sos, 'games_list_sos', {title: details.name, id: details.guid, image: details.image.original_url, date: new Date()})}><img src={AddImg} className="btn-icon" alt="add-icon"/> Add to SoS</button>
                                         </div> 
                                     </div>
                                 </div>
