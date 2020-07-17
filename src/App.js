@@ -6,6 +6,7 @@ import Stack from './components/layout/Stack';
 import MovieDetails from './components/movies/MovieDetails';
 import GameDetails from './components/games/GameDetails';
 import BookDetails from './components/books/BookDetails';
+import Footer from './components/layout/Footer';
 import { Provider } from './context'
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/details/book/:id" component={BookDetails}/>
             </Switch>
           </div>
+          <Footer />
         </React.Fragment>
       </Router>
     </Provider>
