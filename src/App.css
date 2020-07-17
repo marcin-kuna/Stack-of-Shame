@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -7,71 +6,54 @@
 
 body{
     font-family: 'Caveat Brush', cursive;
-    background-color: rgb(70, 73, 112);
+    background-color: #464970;
     overflow-x: hidden;
-}
-
-.pseudo-logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.pseudo-logo span {
-    margin-bottom: -12px;
 }
 
 .navbar-brand {
     font-size: 70px;
     text-transform: uppercase;
+    width: 80%;
+    text-align: center;
+    white-space: normal;
+    line-height: 1;
+}
+
+nav {
+    height: 150px;
+}
+
+.logo {
+    position: absolute;
+    top: 75px;
+    left: 30px;
+    transform: translateY(-50%);
+    height: 70px;
 }
 
 .to-stack {
     position: absolute;
-    top: -80px;
-    right: -80px;
-}
-
-.to-stack-text {
-    text-decoration: none !important;
-    font-size: 1.5rem;
-    fill: #fff;
-    position: relative;
-    left: 50px;
-    z-index: 1;
-}
-
-.to-stack-arrow {
-    width: 11vh;
-    height: 11vh;
-    transform: rotateY(180deg);
-    position: absolute;
-    top: 110px;
-    right: 90px;
-    transition: filter .3s ease-in-out;
+    top: 75px;
+    right: 30px;
+    transform: translateY(-50%);
+    height: 65px;
 }
 
 @media (max-width: 768px){
-    .pseudo-logo span {
-        font-size: 22px;
-        margin-bottom: -5px;
-    }
 
     .navbar-brand {
-        font-size: 45px;
+        font-size: 60px;
     }
 
-    .to-stack-text {
-        font-size: 1.2rem;
-        left: 80px;
-        bottom: 10px;
+    .logo {
+        height: 60px;
+        left: 20px;
     }
 
-    .to-stack-arrow {
-        width: 8vh;
-        height: 8vh;
+    .to-stack {
+        height: 60px;
+        right: 20px;
     }
-
 }
 
 .search-card-body {
