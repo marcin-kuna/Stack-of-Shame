@@ -44,7 +44,7 @@ class MovieDetails extends Component {
                                     <div className="col-md-6 mt-3">
                                         <div className="card card-movie">
                                             <h2 className="card-header card-header-movie card-header-medium rounded-0 text-center">{details.title}</h2>
-                                            <img src={`http://image.tmdb.org/t/p/original${details.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light rounded-0"/>
+                                            <img src={`https://image.tmdb.org/t/p/original${details.poster_path}`} alt="" className="card-img waves-effect waves-block waves-light rounded-0"/>
                                         </div>
                                     </div>
 

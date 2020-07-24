@@ -18,7 +18,7 @@ export class Provider extends Component {
 
     updateMedias = (newList, searchCode, heading) => {
         this.setState({media_list: newList, search_code: searchCode, heading: heading});
-        console.log(this.state.media_list)
+        // console.log(this.state.media_list)
     }
 
     addMultimedia = (mediaList, type, media) => {

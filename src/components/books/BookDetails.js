@@ -23,7 +23,7 @@ class BookDetails extends Component {
     componentDidMount() {
         axios.get(`https://reststop.randomhouse.com/resources/titles/${this.props.match.params.id}?expandLevel=1`)
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             this.setState({details: res.data})
         })
         .catch(err => console.log(err))
