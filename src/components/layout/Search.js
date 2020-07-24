@@ -40,7 +40,7 @@ class Search extends Component {
         if(this.state.media === 'Movie'){
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${this.state.title}&page=1&include_adult=false`)
             .then(res => {
-                console.log(res.data.results)
+                // console.log(res.data.results)
                 updateMedias(res.data.results, 'M', this.updateHeading('M'))
                 this.setState({title: ''})
             })
@@ -50,7 +50,7 @@ class Search extends Component {
         else if(this.state.media === 'Game'){
             axios.get(`https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.title}&resources=game`)
             .then(res => {
-                console.log(res.data.results)
+                // console.log(res.data.results)
                 updateMedias(res.data.results, 'G', this.updateHeading('G'))
                 this.setState({title: ''})
             })
