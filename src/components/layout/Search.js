@@ -59,7 +59,7 @@ class Search extends Component {
     } else if (this.state.media === "Game") {
       axios
         .get(
-          `http://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.title}&resources=game`
+          `https://www.giantbomb.com/api/search/?api_key=${process.env.REACT_APP_GIANTBOMB_KEY}&format=json&query=${this.state.title}&resources=game`
         )
         .then((res) => {
           // console.log(res.data.results)
