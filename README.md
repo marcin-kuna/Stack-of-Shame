@@ -4,4 +4,4 @@ Web application for searching and tracking movies to watch, games to play and bo
 
 Features: React Context API, 3 external API's (movies, games & books databases), Local Storage, RWD
 
-https://stack-of-shame.netlify.app
+https://stack-of-shame.pages.dev
